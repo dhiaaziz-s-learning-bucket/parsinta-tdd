@@ -31,7 +31,7 @@ export default function ResetPassword({ token, email }) {
     };
 
     return (
-        <Guest>
+        <>
             <Head title="Reset Password" />
 
             <ValidationErrors errors={errors} />
@@ -44,7 +44,7 @@ export default function ResetPassword({ token, email }) {
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className="block w-full mt-1"
                         autoComplete="username"
                         handleChange={onHandleChange}
                     />
@@ -57,7 +57,7 @@ export default function ResetPassword({ token, email }) {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className="block w-full mt-1"
                         autoComplete="new-password"
                         isFocused={true}
                         handleChange={onHandleChange}
@@ -71,7 +71,7 @@ export default function ResetPassword({ token, email }) {
                         type="password"
                         name="password_confirmation"
                         value={data.password_confirmation}
-                        className="mt-1 block w-full"
+                        className="block w-full mt-1"
                         autoComplete="new-password"
                         handleChange={onHandleChange}
                     />
@@ -83,6 +83,8 @@ export default function ResetPassword({ token, email }) {
                     </Button>
                 </div>
             </form>
-        </Guest>
+        </>
     );
 }
+
+ResetPassword.layout = page => <Guest children={page} />;
